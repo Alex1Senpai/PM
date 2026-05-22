@@ -10,6 +10,9 @@ assignee: "{{Alex | Timur | Unassigned}}"
 estimate: "{{small (<1 день) | medium (1-3 дня) | large (3-5 дней) | xlarge (>5 дней)}}"
 created: YYYY-MM-DD
 target-done: YYYY-MM-DD
+code_repo: ""
+commit_initial: ""
+commit_final: ""
 ---
 
 # T-NNN — {{Название задачи}}
@@ -57,7 +60,7 @@ target-done: YYYY-MM-DD
 -
 
 ## Завершение
-Заполняется разработчиком при отметке «готово». Что было запущено, где это лежит, что нужно знать следующему разработчику.
+> Заполняется при закрытии задачи. **Генерируется AI** из git-истории между `commit_initial` и `commit_final` (см. `_Skills/complete-task.md`). Не пиши руками — сгенерируй, прочитай, поправь, вставь.
 
 > (пусто до завершения)
 

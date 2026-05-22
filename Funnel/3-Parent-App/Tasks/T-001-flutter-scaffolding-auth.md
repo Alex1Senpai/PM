@@ -10,6 +10,9 @@ assignee: Alex
 estimate: large
 created: 2026-05-22
 target-done: 2026-06-05
+code_repo: ""
+commit_initial: ""
+commit_final: ""
 ---
 
 # T-001 — Поднять Flutter-проект и реализовать экран авторизации (Phone OTP + биометрия)

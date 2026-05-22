@@ -29,7 +29,7 @@ updated: 2026-05-22
 - (пока нет — идёт миграция с Linear)
 
 ## Активные задачи
-- (пока нет — идёт миграция с Linear)
+- [[Tasks/T-005-timur-weekend-marketing-sprint]] — Timur — small — Weekend Sprint: UTM tracking + dead-click аудит + редирект URL Google Ads — цель 2026-05-25
 
 ## Недавние решения
 - (пока нет)

@@ -10,6 +10,9 @@ assignee: Timur
 estimate: medium
 created: 2026-05-22
 target-done: 2026-06-01
+code_repo: "n/a — discovery task без кода"
+commit_initial: ""
+commit_final: ""
 ---
 
 # T-002 — Discovery: выбрать SMS-провайдера для OTP в Узбекистане
