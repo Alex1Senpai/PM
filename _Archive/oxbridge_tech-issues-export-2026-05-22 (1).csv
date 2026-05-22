@@ -1,0 +1,65 @@
+identifier,title,status,priority,team,project,projectMilestone,assignee,creator,dueDate,updatedAt,labels,trashed
+OXB-12,"[DONE] Очистить и нормализовать backlog School-site",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-04-28T08:14:01.357Z,,false
+OXB-13,"[DONE] Обновить архитектурную и операционную документацию",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-04-27T13:26:42.989Z,,false
+OXB-14,"[DONE] Укрепить backend routes и middleware",Done,Urgent,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-04-28T08:07:50.679Z,,false
+OXB-15,"[IN PROGRESS] Перфоманс-стабилизация по Lighthouse baseline",Done,Urgent,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-05-05T08:59:24.667Z,,false
+OXB-16,"[DONE] Стабилизировать CI/CD quality gates",Done,Urgent,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-04-28T08:14:01.120Z,,false
+OXB-17,"[DONE] Синхронизировать sitemap и локали с текущим контентом",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-04-27T13:26:41.800Z,,false
+OXB-18,"[BUG] Модалка записи на экскурсию не закрывается при смене маршрута и блокирует страницу",Done,Urgent,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T10:06:39.648Z,,false
+OXB-19,"[BUG] Несоответствие маршрута и контента: URL не совпадает с отображаемой страницей",Done,Urgent,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T08:59:27.882Z,,false
+OXB-20,"[TASK] Добавить автоматизированный smoke E2E для критичных кнопок и интеграций",Done,High,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T10:06:40.333Z,,false
+OXB-21,"[BUG] Ссылки «Политика конфиденциальности» и «Условия использования» ведут на `/contact`",Done,High,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T10:06:39.879Z,,false
+OXB-22,"[TASK] Локализовать aria-label переключателя языка и блока соцсетей в футере",Done,Medium,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T10:06:39.441Z,,false
+OXB-23,"[TASK] Закрывать модалку экскурсии при смене маршрута (`location`)",Done,High,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T10:06:40.067Z,,false
+OXB-24,"[TEST] Матрица смоук: маршруты, локали, меню и CTA после фикса роутинга",Done,Medium,Oxbridge_tech,School-site,,,ShiDari,,2026-05-05T10:06:40.242Z,,false
+OXB-25,"Сокращение времени LCP (Largest Contentful Paint) в Vercel/Next.js",Tasks,High,Oxbridge_tech,,,,ShiDari,,2026-04-28T06:16:56.381Z,,false
+OXB-26,"PSI audit: critical CWV regressions on production (home + tuition-fees)",Tasks,High,Oxbridge_tech,,,,ShiDari,,2026-04-28T12:47:07.065Z,,false
+OXB-27,"Сайт: билды, скрипты и приоритет сети до LCP",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-05-05T08:59:27.664Z,,false
+OXB-28,"Убрать ошибки при билдах (CI/local)",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-05-05T08:11:05.938Z,,false
+OXB-29,"Исправить предупреждения браузеров по скриптам",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-05-05T08:11:05.900Z,,false
+OXB-30,"Приоритеты загрузки данных до LCP (первая загрузка)",Done,High,Oxbridge_tech,School-site,,ShiDari,ShiDari,,2026-05-05T11:32:50.866Z,,false
+OXB-32,"Сформировать 5 полноценных quick wins",Tasks,Medium,Oxbridge_tech,Funnel,Исследование и архитектура,,Тимур Рузиев (Hoptoad),,2026-05-04T08:53:11.475Z,,false
+OXB-33,"Спроектировать базу данных проекта",Tasks,High,Oxbridge_tech,Funnel,Исследование и архитектура,,Тимур Рузиев (Hoptoad),,2026-05-04T08:56:29.068Z,,false
+OXB-34,"Выбрать auth-систему для родителей",Tasks,High,Oxbridge_tech,Funnel,Исследование и архитектура,,Тимур Рузиев (Hoptoad),,2026-05-04T08:53:32.835Z,,false
+OXB-35,"Собрать требования от бухгалтера и кассира",Tasks,High,Oxbridge_tech,Funnel,Исследование и архитектура,,Тимур Рузиев (Hoptoad),,2026-05-04T08:53:26.278Z,,false
+OXB-36,"Собрать требования от завуча по оценкам",Tasks,High,Oxbridge_tech,Funnel,Исследование и архитектура,,Тимур Рузиев (Hoptoad),,2026-05-04T08:53:18.698Z,,false
+OXB-37,"Провести аудит сайта, рекламы и соцсетей",Tasks,Medium,Oxbridge_tech,Funnel,Website / Calls,,Тимур Рузиев (Hoptoad),,2026-05-04T08:53:05.406Z,,false
+OXB-38,"Оптимизировать путь лида в Telegram и звонки",Tasks,Medium,Oxbridge_tech,Funnel,Website / Calls,,Тимур Рузиев (Hoptoad),,2026-05-04T08:52:59.670Z,,false
+OXB-39,"Определить точки конверсии и метрики сайта",Tasks,Medium,Oxbridge_tech,Funnel,Website / Calls,,Тимур Рузиев (Hoptoad),,2026-05-04T08:52:53.025Z,,false
+OXB-40,"Выбрать стек IP-телефонии и CRM",Tasks,High,Oxbridge_tech,Funnel,IP-телефония и CRM,,Тимур Рузиев (Hoptoad),,2026-05-04T08:52:47.182Z,,false
+OXB-41,"Спроектировать интеграцию IP-телефонии и CRM",Tasks,High,Oxbridge_tech,Funnel,IP-телефония и CRM,,Тимур Рузиев (Hoptoad),,2026-05-04T08:52:47.756Z,,false
+OXB-42,"Описать UX обработки входящих обращений",Tasks,Medium,Oxbridge_tech,Funnel,IP-телефония и CRM,,Тимур Рузиев (Hoptoad),,2026-05-04T08:52:47.756Z,,false
+OXB-43,"Проанализировать причины потери лидов",Tasks,High,Oxbridge_tech,Funnel,Удержание и подогрев,Тимур Рузиев (Hoptoad),Тимур Рузиев (Hoptoad),,2026-05-21T12:42:26.055Z,,false
+OXB-44,"Спроектировать механики удержания и подогрева",Tasks,Medium,Oxbridge_tech,Funnel,Удержание и подогрев,,Тимур Рузиев (Hoptoad),,2026-05-04T08:52:16.927Z,,false
+OXB-45,"Сформировать roadmap Super App по ролям",Tasks,High,Oxbridge_tech,Funnel,Super App для родителей,ShiDari,Тимур Рузиев (Hoptoad),,2026-05-21T12:42:34.098Z,,false
+OXB-46,"Описать MVP родительского кабинета",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T08:56:17.537Z,,false
+OXB-47,"Сделать quick win по оплате обучения",Tasks,High,Oxbridge_tech,Funnel,Super App для родителей,ShiDari,Тимур Рузиев (Hoptoad),,2026-05-21T12:42:37.200Z,,false
+OXB-48,"Сделать quick win по системе пропусков",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.016Z,,false
+OXB-49,"Сделать quick win по вызывалке с Hikvision",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.208Z,,false
+OXB-50,"Сделать quick win по заказу формы",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.116Z,,false
+OXB-51,"Сделать quick win по расписанию еды",Tasks,Low,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.427Z,,false
+OXB-52,"Сделать quick win по автобусам Millenium",Tasks,Low,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.175Z,,false
+OXB-53,"Подготовить план запуска до середины августа",Tasks,High,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T08:51:52.589Z,,false
+OXB-54,"Funnel | Оплата: баланс, Click/PayMe, вебхуки",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:34.277Z,,false
+OXB-55,"Funnel | Пропуски: заявки, статусы, уведомления",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.046Z,,false
+OXB-56,"Funnel | Вызывалка / Hikvision: вход/выход + push",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.230Z,,false
+OXB-57,"Funnel | Заказ формы: склад, оплата, выдача",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.140Z,,false
+OXB-58,"Funnel | Расписание еды: меню по датам/классам",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.463Z,,false
+OXB-59,"Funnel | Автобусы: маршруты, посадка/высадка, уведомления",Tasks,Medium,Oxbridge_tech,Funnel,Super App для родителей,,Тимур Рузиев (Hoptoad),,2026-05-04T09:17:36.202Z,,false
+OXB-60,"Funnel | Архитектура: целевая платформа, модель данных, NFR",Tasks,Medium,Oxbridge_tech,Funnel,Исследование и архитектура,,Тимур Рузиев (Hoptoad),,2026-05-04T08:53:40.422Z,,false
+OXB-61,"Funnel | Website/Calls: лид-формы, трекинг, SLA",Tasks,Medium,Oxbridge_tech,Funnel,Website / Calls,,Тимур Рузиев (Hoptoad),,2026-05-04T08:56:34.017Z,,false
+OXB-62,"Funnel | IP-телефония и CRM: звонки, записи, pipeline",Tasks,Medium,Oxbridge_tech,Funnel,IP-телефония и CRM,,Тимур Рузиев (Hoptoad),,2026-05-04T08:56:34.021Z,,false
+OXB-63,"Funnel | Удержание и подогрев: сегменты, кампании, события",Tasks,Medium,Oxbridge_tech,Funnel,Удержание и подогрев,,Тимур Рузиев (Hoptoad),,2026-05-04T08:56:34.029Z,,false
+OXB-64,"[Done] i18next + prerender: без ложной готовности и «сырьих ключей»",Done,Medium,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:18.867Z,,false
+OXB-65,"[Done] Locale: синхронизация URL и i18next (LanguageSwitcher + LocaleLayout + useLocale)",Done,Medium,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:19.905Z,,false
+OXB-66,"[Done] TR hero: перевод titlePart2 + безопасная сборка второй строки в Hero",Done,Low,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:30.930Z,,false
+OXB-67,"[Done] Philosopher preload: предупреждение Chrome после load (font-display)",Done,Low,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:21.750Z,,false
+OXB-68,"[Done] Prerender: Beasties pruneSource уничтожал общий CSS при мультистраничном пререндере",Done,High,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:47.167Z,,false
+OXB-69,"[Done] LocaleLink: префикс локали из pathname — логотип и «домой» не сбрасывают язык",Done,Medium,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:49.032Z,,false
+OXB-70,"[Done] Vercel production: выкат исправлений (CSS prerender + LocaleLink)",Done,Low,Oxbridge_tech,School-site,,,ShiDari,,2026-05-06T12:24:50.780Z,,false
+OXB-71,"Change Manychat settings for website redirection instead of telegram",Done,High,Oxbridge_tech,,,,Тимур Рузиев (Hoptoad),2026-05-11,2026-05-15T12:22:03.105Z,,false
+OXB-72,"Complete CRM",Tasks,High,Oxbridge_tech,,,,Тимур Рузиев (Hoptoad),2026-05-11,2026-05-10T19:10:02.083Z,,false
+OXB-73,"Create a presentation",Canceled,High,Oxbridge_tech,,,,Тимур Рузиев (Hoptoad),2026-05-11,2026-05-22T05:12:02.444Z,"Area › Marketing & Enablement",false
+OXB-74,"Create an ATC",Tasks,High,Oxbridge_tech,,,,Тимур Рузиев (Hoptoad),2026-05-20,2026-05-22T05:12:02.485Z,"Area › Marketing & Enablement",false
+OXB-75,"Assign random responsible for amoCRM tour requests",Tasks,Medium,Oxbridge_tech,School-site,,,Тимур Рузиев (Hoptoad),,2026-05-11T10:59:56.838Z,,false
+OXB-76,"Интеграция UCM6304 ↔ amoCRM: IVR/очереди по кампусам, прослойка, ранняя карточка, overflow, запись, click-to-call",Tasks,Medium,Oxbridge_tech,, ,ShiDari,Тимур Рузиев (Hoptoad),,2026-05-21T12:49:02.797Z,,false
