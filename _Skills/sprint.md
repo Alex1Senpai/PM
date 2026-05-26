@@ -1,45 +1,45 @@
 ---
 skill: sprint
-purpose: Plan a 2-week sprint with a single goal, committed tasks, and risks
-trigger: "/sprint" or "plan the next sprint"
+purpose: Спланировать 2-недельный спринт с одной целью, закоммиченными задачами, и рисками
+trigger: «/sprint» или «спланируй следующий спринт»
 ---
 
-# Sprint — plan the next two weeks
+# Sprint — спланировать следующие две недели
 
-When invoked, plan a 2-week sprint. Output a file in `Sprints/S-NNN-{slug}.md` using `_Templates/Sprint.md`.
+При вызове спланируй 2-недельный спринт. Выведи файл в `Sprints/S-NNN-{slug}.md`, используя `_Templates/Sprint.md`.
 
-## How to operate
+## Как действовать
 
-### Step 1 — Decide the sprint goal
-Ask Bekhruz: "What is the one thing this sprint must prove or ship?" If he gives you two, push back. A sprint with two goals has none.
+### Шаг 1 — Определи цель спринта
+Спроси Bekhruz: «Какую одну вещь этот спринт должен доказать или запустить?» Если он даёт две — push'нись назад. У спринта с двумя целями нет ни одной.
 
-For Parent App context:
-- Days remaining to Aug 15 should drive goal urgency.
-- Goals should be outcome-shaped, not output-shaped. "Payments end-to-end working in staging" beats "build payments features."
+Для контекста Parent App:
+- Дни до 15 августа должны диктовать срочность цели.
+- Цели outcome-ориентированные, не output-ориентированные. «Платежи end-to-end работают на staging» бьёт «реализовать платёжные фичи».
 
-### Step 2 — Pull candidate tasks
-- Tasks with status `pending`, priority `urgent` or `high`, that serve the sprint goal.
-- Tasks blocked by external dependencies should NOT be committed unless the dependency clears this sprint.
+### Шаг 2 — Подними кандидатов в задачи
+- Задачи с `status: pending`, приоритет `urgent` или `high`, которые служат цели спринта.
+- Задачи, заблокированные внешними зависимостями, НЕ должны коммититься, если зависимость не разблокируется в этом спринте.
 
-### Step 3 — Commit realistically
-Capacity rule of thumb:
-- Alex: 1 large + 1 medium task per week. So ~2 large or 4 medium across a 2-week sprint.
-- Timur: 2 medium tasks per week. So ~4 medium across a 2-week sprint.
-- Do not commit "stretch" until committed work is realistic.
+### Шаг 3 — Коммить реалистично
+Эвристика capacity:
+- Alex: 1 large + 1 medium задача в неделю. То есть ~2 large или 4 medium на 2-недельный спринт.
+- Timur: 2 medium задачи в неделю. То есть ~4 medium на 2-недельный спринт.
+- Не коммить «stretch», пока коммитнутая работа не реалистична.
 
-Honest budget: cut commitments by 20% from what feels possible. Sprints overrun, not underrun.
+Честный budget: режь коммитменты на 20% от того, что кажется возможным. Спринты переходят, не недоходят.
 
-### Step 4 — Write the sprint file
-- Use `_Templates/Sprint.md`.
-- Fill the committed-work table with task links.
-- Risks section: name 2–3 specific things that could blow up this sprint.
-- Out of scope section: 2–3 attractive things being explicitly deferred.
+### Шаг 4 — Напиши файл спринта
+- Используй `_Templates/Sprint.md`
+- Заполни таблицу закоммиченной работы ссылками на задачи
+- Раздел «Риски»: назови 2–3 конкретные вещи, которые могут взорвать этот спринт
+- Раздел «Вне scope»: 2–3 привлекательные вещи, которые сознательно откладываем
 
-### Step 5 — Update task target-done dates
-For each committed task, set `target-done` to a date within the sprint window. Without this, "committed" is meaningless.
+### Шаг 5 — Обнови target-done в задачах
+Для каждой закоммиченной задачи поставь `target-done` на дату в рамках окна спринта. Без этого «закоммичено» бессмысленно.
 
-## Rules
-- Sprints are 14 days. Start Monday. End Friday-of-week-2.
-- One goal per sprint. Reject scope creep.
-- Surface risks honestly. If a sprint depends on a vendor reply, that's a risk.
-- After Bekhruz confirms, mark the sprint `status: active` and update relevant Hubs.
+## Правила
+- Спринты — 14 дней. Начало в понедельник. Конец в пятницу второй недели.
+- Одна цель на спринт. Отвергай scope creep.
+- Поднимай риски честно. Если спринт зависит от ответа подрядчика — это риск.
+- После подтверждения Bekhruz отметь спринт `status: active` и обнови соответствующие Hub'ы.

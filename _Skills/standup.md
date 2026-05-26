@@ -1,45 +1,45 @@
 ---
 skill: standup
-purpose: Generate a 1-minute standup summary from git activity + task state
-trigger: "/standup"
+purpose: Сгенерировать минутный standup из git-активности и состояния задач
+trigger: «/standup»
 ---
 
-# Standup — what's moving, what's stuck, what's next
+# Standup — что движется, что застряло, что дальше
 
-When invoked, produce a tight 1-minute standup summary. Pretend you're the PM giving a verbal update at the start of a workday.
+При вызове сгенерируй плотную минутную сводку. Представь, что ты — PM, делающий устный апдейт в начале рабочего дня.
 
-## What to read
-1. Git log of the PM folder for last 7 days:
-   `git -C /Users/thebekhruz/Desktop/Career-Vault/PM log --since="7 days ago" --oneline --all`
-2. Tasks with status changes in the last 7 days (frontmatter `status: done` files touched recently).
-3. Status logs from `Status/` in the last 7 days.
-4. Open tasks with target-done in next 7 days.
+## Что читать
+1. Git log PM-папки за последние 7 дней:
+   `git -C /Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM log --since="7 days ago" --oneline --all`
+2. Задачи с изменениями статуса за последние 7 дней (файлы с frontmatter `status: done`, изменённые недавно)
+3. Файлы статуса из `Status/` за последние 7 дней
+4. Открытые задачи с `target-done` в ближайшие 7 дней
 
-## What to output
+## Что выдавать
 
 ```
-## Standup — {{date}}
+## Standup — {{дата}}
 
-**Shipped (last 7 days):**
-- {{1-line items}}
+**Запущено (последние 7 дней):**
+- {{1-строчные пункты}}
 
-**In flight:**
+**В работе:**
 - {{Alex: ...}}
 - {{Timur: ...}}
 - {{Bekhruz: ...}}
 
-**Blocked:**
-- {{item, who can unblock}}
+**Заблокировано:**
+- {{пункт, кто может разблокировать}}
 
-**This week, must close:**
-- {{deadlines hitting in the next 7 days}}
+**На этой неделе обязательно закрыть:**
+- {{дедлайны в следующие 7 дней}}
 
-**Bekhruz's plate:**
-- {{decisions or specs only Bekhruz can produce}}
+**На столе у Bekhruz:**
+- {{решения или спецификации, которые может произвести только Bekhruz}}
 ```
 
-## Rules
-- Tight. No paragraphs. Bullets only.
-- If nothing shipped in 7 days for Parent App and we're inside 90 days of Aug 15, call that out as the headline. Don't bury it.
-- If Status/ files are empty or stale, say so — it's a signal.
-- If a task is past its target-done date with no completion note, list it as "slipping."
+## Правила
+- Плотно. Никаких параграфов. Только буллеты.
+- Если за 7 дней ничего не запущено по Parent App, а мы внутри 90 дней до 15 августа — это заголовок. Не прячь.
+- Если файлы Status/ пустые или устаревшие — скажи. Это сигнал.
+- Если задача просрочена своей `target-done` без раздела «Завершение» — назови «съезжающей».

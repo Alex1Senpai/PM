@@ -1,40 +1,41 @@
 ---
 skill: spec
-purpose: Interactive write a Spec.md for a feature
-trigger: "/spec" or "write a spec for X"
+purpose: Интерактивно написать Spec.md для функции/продукта
+trigger: «/spec» или «напиши спецификацию для X»
 ---
 
-# Spec — write a feature/product specification
+# Spec — написать спецификацию функции / продукта
 
-When invoked, produce a fully filled-in Spec.md using `_Templates/Spec.md` as the structure.
+При вызове создай полностью заполненный Spec.md, используя `_Templates/Spec.md` как структуру.
 
-## How to operate
+## Как действовать
 
-### Step 1 — Ask clarifying questions BEFORE writing anything
-You are spec'ing for a dev (Alex or Timur) who is currently lost. The spec must remove ambiguity. Before drafting, ask Bekhruz the questions that close the gaps. Use the `AskUserQuestion` tool for branching choices; use prose for open-ended.
+### Шаг 1 — Задай уточняющие вопросы ДО того, как что-то писать
 
-Minimum questions to close before writing:
-- Which Funnel stage does this belong to?
-- Who is the primary user, and what job are they trying to do?
-- What MUST it do (3–7 functional requirements)?
-- What's the testable definition of done?
-- What's the target ship date?
-- Is this SIS-impacting? (For Parent App specs — does it affect the 2027-28 architecture?)
-- What's explicitly out of scope?
-- What dependencies exist (other specs, vendors, data)?
+Ты специфицируешь для разработчика (Alex или Timur), который сейчас может быть «потерян». Спецификация должна убрать неоднозначность. До черновика — задай Bekhruz вопросы, закрывающие пробелы. Используй `AskUserQuestion` для ветвящихся выборов; используй прозу для открытых.
 
-### Step 2 — Write the spec
-- Use the exact template from `_Templates/Spec.md`.
-- File goes in `Funnel/{stage}/Specs/{kebab-case-name}.md`.
-- Frontmatter fully filled. No placeholder values left.
-- Functional requirements numbered and unambiguous. If a dev would have to ask a question to start coding, rewrite the requirement.
-- Update `Funnel/{stage}/_Hub.md` to link the new spec under "Active specs."
+Минимум вопросов, которые нужно закрыть до письма:
+- К какой стадии воронки относится?
+- Кто основной пользователь, и какую задачу он решает?
+- Что функция ОБЯЗАНА делать (3–7 функциональных требований)?
+- Какое тестируемое определение готовности?
+- Целевая дата ship?
+- Является ли это integration-impacting? (Влияет ли на контракты с источниками данных — текущими или будущей LMS?)
+- Что явно вне scope?
+- Какие зависимости существуют (другие спецификации, подрядчики, данные)?
 
-### Step 3 — Flag what needs follow-up
-End with a short list of things Bekhruz still owes (open questions, decisions needed) before this spec can be broken into tasks.
+### Шаг 2 — Напиши спецификацию
+- Используй точный шаблон из `_Templates/Spec.md`
+- Файл идёт в `Funnel/{стадия}/Specs/{kebab-case-name}.md`
+- Frontmatter полностью заполнен. Без placeholder-значений.
+- Функциональные требования нумерованные и однозначные. Если разработчику пришлось бы задать вопрос, чтобы начать кодить — переформулируй требование.
+- Обнови `Funnel/{стадия}/_Hub.md` — добавь ссылку на новую спецификацию в раздел «Активные спецификации»
 
-## Rules
-- Never invent product details. If Bekhruz didn't specify, ask.
-- Never write a spec with `sis-impacting: true` for Parent App without naming the specific SIS-impacting decisions in the Future-state section.
-- Never link to specs that don't exist. If you reference a dependency that hasn't been written, create it as a stub or flag it as an open question.
-- Russian-language UI requirements should be noted explicitly — most parents are Russian-speaking. Latin program names (Futurum, Hereditum, Initium) should NOT appear in UI copy; use plain descriptors.
+### Шаг 3 — Отметь, что требует follow-up
+Заверши коротким списком того, что Bekhruz ещё должен закрыть (открытые вопросы, нужные решения), прежде чем эту спецификацию можно будет разбить на задачи.
+
+## Правила
+- Никогда не выдумывай детали продукта. Если Bekhruz не уточнил — спроси.
+- Никогда не пиши спецификацию с `integration-impacting: true` для Parent App, не назвав конкретные интеграционно-влияющие решения в разделе «Будущее».
+- Никогда не ссылайся на спецификации, которых не существует. Если упоминаешь зависимость, которая ещё не написана — создай заглушку или отметь как открытый вопрос.
+- Требования к UI на русском должны быть отмечены явно — большинство родителей русскоговорящие. Латинские названия программ (Futurum, Hereditum, Initium) НЕ должны появляться в UI-строках; используй обычные описатели.

@@ -1,54 +1,54 @@
 ---
 skill: pm-status
-purpose: Produce a fast, honest health snapshot across all Funnel stages
-trigger: "/pm-status" or "give me a PM status"
+purpose: Быстрый честный снимок состояния по всем стадиям воронки
+trigger: «/pm-status» или «дай PM-статус»
 ---
 
-# PM Status — health snapshot across the Funnel
+# PM-статус — снимок состояния по воронке
 
-When invoked, generate a status report covering all three Funnel stages. Be honest, not performative. If something is yellow or red, say so. If something is green but only because nothing is happening, say so.
+При вызове сгенерируй отчёт о состоянии, покрывающий все три стадии воронки. Будь честен, без приукрашивания. Если что-то жёлтое или красное — скажи. Если что-то зелёное только потому, что ничего не происходит — скажи и это.
 
-## What to read
-1. `Funnel/_Hub.md` — top-level state.
-2. `Funnel/1-School-site/_Hub.md`, `Funnel/2-CRM/_Hub.md`, `Funnel/3-Parent-App/_Hub.md`.
-3. All open Tasks across all three stages — look for status, assignee, target-done.
-4. The most recent 3 files in `Status/` (team's weekly status logs).
-5. The most recent decisions in `Funnel/*/Decisions/`.
-6. Git log: `git -C /Users/thebekhruz/Desktop/Career-Vault/PM log --oneline -n 30` for recent activity. Use `mcp__workspace__bash` with the workspace path translation if needed.
+## Что читать
+1. `Funnel/_Hub.md` — общее состояние воронки
+2. `Funnel/1-School-site/_Hub.md`, `Funnel/2-CRM/_Hub.md`, `Funnel/3-Parent-App/_Hub.md`
+3. Все открытые задачи во всех стадиях — смотри `status`, `assignee`, `target-done`
+4. Последние 3 файла в `Status/` (еженедельные статусы команды)
+5. Недавние решения в `Funnel/*/Decisions/`
+6. Git log: `git -C /Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM log --oneline -n 30` для недавней активности
 
-## What to output
+## Что выдавать
 
 ```
-## PM Status — {{date}}
+## PM-статус — {{дата}}
 
-### Funnel/3-Parent-App (Aug 15 deadline)
-- **Health:** {{green | yellow | red}}
-- **Days to deadline:** {{count days from today to 2026-08-15}}
-- **Open tasks:** N (M assigned to Alex, K to Timur, L unassigned)
-- **Blocked:** {{list any blocked tasks with reasons}}
-- **Recent merges:** {{from git log}}
-- **What I'd worry about:** {{your honest read}}
+### Funnel/3-Parent-App (дедлайн 15 августа)
+- **Health:** {{зелёный | жёлтый | красный}}
+- **Дней до дедлайна:** {{подсчёт от сегодняшней даты до 2026-08-15}}
+- **Открытых задач:** N (M назначено Alex, K — Timur, L — без назначения)
+- **Заблокировано:** {{список заблокированных задач с причинами}}
+- **Недавние мержи:** {{из git log}}
+- **Что меня беспокоит:** {{честный read}}
 
 ### Funnel/2-CRM
-... same structure
+... та же структура
 
 ### Funnel/1-School-site
-... same structure
+... та же структура
 
 ### Cross-funnel
-- **Unassigned work above priority "low":** N (this is the gap)
-- **Specs without tasks:** N (gap between thinking and doing)
-- **Tasks without target-done:** N (commitment gaps)
+- **Незакрытые задачи с приоритетом выше low:** N (это пробел)
+- **Спецификации без задач:** N (пробел между мышлением и делом)
+- **Задачи без target-done:** N (пробелы в коммитментах)
 
-### Bekhruz's call to action
-The 2–3 things only Bekhruz can unblock right now.
+### Что зависит от Bekhruz
+2–3 вещи, которые только Bekhruz может разблокировать прямо сейчас.
 ```
 
-## Rules
-- Do not sugarcoat. If Parent App is behind, say "yellow" or "red" with the reason.
-- Color logic for health:
-  - **Green:** on track, blockers cleared, recent commits
-  - **Yellow:** on track but with concerning signals (slipping target dates, growing unassigned pile, no recent commits)
-  - **Red:** off track. Deadline at risk. Major blocker unresolved.
-- If team status logs are stale (>10 days), call that out — it means the team isn't using the system.
-- End with concrete, named asks for Bekhruz. Not "we should think about" — actual decisions.
+## Правила
+- Не подслащивай. Если Parent App отстаёт — скажи «жёлтый» или «красный» с причиной.
+- Логика цветов:
+  - **Зелёный:** в графике, блокеры сняты, есть недавние коммиты
+  - **Жёлтый:** в графике, но с тревожными сигналами (съезжающие target-даты, растущая куча unassigned, нет недавних коммитов)
+  - **Красный:** отстаём. Дедлайн под угрозой. Серьёзный блокер не решён.
+- Если статусы команды устарели (>10 дней) — отметь. Это значит, команда не пользуется системой.
+- Заверши конкретными названными запросами к Bekhruz. Не «надо подумать» — реальные решения.

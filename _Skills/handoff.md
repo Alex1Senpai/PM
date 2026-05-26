@@ -1,48 +1,48 @@
 ---
 skill: handoff
-purpose: Turn a Spec into one or more buildable Tasks ready for Alex or Timur
-trigger: "/handoff" or "break this spec into tasks"
+purpose: Превратить спецификацию в одну или несколько готовых к работе задач для Alex или Timur
+trigger: «/handoff» или «разбей эту спецификацию на задачи»
 ---
 
-# Handoff — convert a spec into assignable tasks
+# Handoff — превратить спецификацию в назначаемые задачи
 
-When invoked, take a spec and produce the tasks needed to build it. Each task must be small enough that a dev can finish it in 1–5 days and unambiguous enough that they don't need to ask you a question to start.
+При вызове возьми спецификацию и сгенерируй задачи, нужные для её реализации. Каждая задача должна быть достаточно мала, чтобы разработчик закрыл её за 1–5 дней, и достаточно однозначна, чтобы не задавать вопросы для старта.
 
-## How to operate
+## Как действовать
 
-### Step 1 — Read the spec
-- Read the full spec file Bekhruz points you at.
-- If the spec has unresolved Open Questions, STOP and ask Bekhruz to close them first. Do not write tasks against an incomplete spec.
+### Шаг 1 — Прочитай спецификацию
+- Прочитай файл спецификации, на который указывает Bekhruz целиком
+- Если в спецификации есть незакрытые открытые вопросы — **СТОП**. Попроси Bekhruz закрыть их сначала. Не пиши задачи против неполной спецификации.
 
-### Step 2 — Decompose
-Break the spec into the smallest set of tasks that together satisfy all acceptance criteria. Heuristics:
-- One task ≠ one acceptance criterion. Acceptance criteria are tests; tasks are work.
-- One task should produce a reviewable PR (or PR equivalent in a vendor handoff).
-- If a task spans more than 5 working days, split it.
-- Setup/scaffolding tasks (e.g. "set up the data model") are valid and should come first.
+### Шаг 2 — Разбей на задачи
+Разбей спецификацию на минимальный набор задач, которые вместе закрывают все критерии приёмки. Эвристики:
+- Одна задача ≠ один критерий приёмки. Критерии приёмки — это тесты; задачи — это работа.
+- Одна задача должна давать ревьюабельный PR (или эквивалент при работе с подрядчиком).
+- Если задача занимает больше 5 рабочих дней — разбей.
+- Setup/scaffolding задачи (например, «настроить модель данных») валидны и идут первыми.
 
-### Step 3 — Decide assignee
-For each task, ask Bekhruz whether Alex or Timur owns it. Defaults to "Unassigned" if Bekhruz doesn't say. Heuristics:
-- Architecture / first-of-its-kind work → Alex
-- Repetitive implementation, well-scoped surfaces → Timur
-- Vendor integration glue code → Alex
-- UI/UX implementation following a clear design → either
+### Шаг 3 — Реши, кто исполнитель
+По каждой задаче спроси Bekhruz, кто её владеет: Alex или Timur. По умолчанию — `Unassigned`, если Bekhruz не уточнил. Эвристики:
+- Архитектурная работа / новизна → Alex
+- Повторяющаяся реализация, чётко очерченная поверхность → Timur
+- Glue-код для подрядной интеграции → Alex
+- UI/UX по чёткому дизайну → любой
 
-### Step 4 — Write task files
-- Each task as a new file in `Funnel/{stage}/Tasks/T-NNN-{slug}.md`.
-- Use the template at `_Templates/Task.md`.
-- IDs are sequential per stage. Check existing tasks to find the next number.
-- Frontmatter fully filled: id, title, spec, funnel-stage, status (pending), priority, assignee, estimate, created, target-done.
-- "What to build" steps are imperative and concrete. No "consider" or "explore" — those belong in a spike task, not an implementation task.
-- "Definition of done" items are checkable.
-- Update the spec file: link the tasks under "Tasks" section.
-- Update the stage `_Hub.md`: link tasks under "Active tasks."
+### Шаг 4 — Напиши файлы задач
+- Каждая задача — новый файл в `Funnel/{стадия}/Tasks/T-NNN-{slug}.md`
+- Используй шаблон `_Templates/Task.md`
+- ID последовательные. Проверь существующие задачи, чтобы найти следующий номер.
+- Frontmatter полностью заполнен: id, title, spec, funnel-stage, status (pending), priority, assignee, estimate, created, target-done, code_repo (если применимо), commit_initial, commit_final.
+- Шаги в «Что нужно сделать» — императивные и конкретные. Без «рассмотреть» или «исследовать» — это для discovery-задач, не для implementation.
+- Пункты «Определение готовности» — проверяемые.
+- Обнови файл спецификации: добавь ссылки на задачи в раздел «Задачи».
+- Обнови `_Hub.md` стадии: добавь ссылки на задачи в «Активные задачи».
 
-### Step 5 — Sequence
-At the end, propose a sequence — which tasks block which. Surface this to Bekhruz so he can confirm.
+### Шаг 5 — Последовательность
+В конце предложи порядок — какая задача блокирует какую. Покажи Bekhruz для подтверждения.
 
-## Rules
-- Never assign a task without Bekhruz's explicit go-ahead.
-- Never write a task with empty "Definition of done."
-- If you can't write a clear Definition of Done, the task isn't ready — split it or ask Bekhruz more questions.
-- Estimates are rough. "Small (<1d), Medium (1-3d), Large (3-5d), XLarge (>5d, split it)."
+## Правила
+- Никогда не назначай задачу без явного одобрения Bekhruz.
+- Никогда не пиши задачу с пустым «Определением готовности».
+- Если не можешь написать чёткое определение готовности — задача не готова. Разбей дальше или задай Bekhruz больше вопросов.
+- Оценки приблизительные. «Small (<1д), Medium (1-3д), Large (3-5д), XLarge (>5д — разбей)».

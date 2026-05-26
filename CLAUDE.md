@@ -1,168 +1,185 @@
-# CLAUDE.md — PM Persistent Memory
-> Source of truth for Claude when working inside the PM folder.
-> This is the **project management** workspace — separate from Career-Vault.
-> Career-Vault is Bekhruz's personal/strategic vault. PM is the team's shared workspace.
+# CLAUDE.md — Постоянная память PM
+> Источник истины для Claude при работе внутри PM-папки.
+> Это **project management** workspace — отдельный от Career-Vault.
+> Career-Vault — личный/стратегический vault Bekhruz. PM — общее рабочее пространство команды.
 >
-> **Rule of thumb for what belongs here:** If you would not send it to Alex or Timur,
-> it does not belong in PM. No pricing tables, no brand voice rules, no personal preferences,
-> no admissions strategy. Project facts, deadlines, technical constraints — yes.
+> **Правило большого пальца:** если ты не отправил бы это Алексу или Тимуру, значит, оно не должно быть в PM.
+> Никаких таблиц цен, никаких правил бренд-войса, никаких личных предпочтений, никакой admissions-стратегии.
+> Проектные факты, дедлайны, технические ограничения — да.
 
 ---
 
-## Who works in this folder
+## Кто работает в этой папке
 
-| Role | Person | What they do |
+| Роль | Человек | Что делает |
 |---|---|---|
-| **PM / Visionary** | Bekhruz | Writes specs, sets priorities, reviews PRs. Single source of truth for direction. |
-| **Middle Developer** | Alex | Builds features. Reads specs, opens PRs, owns architecture decisions within the spec. |
-| **Intern Developer** | Timur | Builds features under guidance. Same workflow as Alex (PR-per-task) — he's the more responsible of the two. |
+| **PM / Visionary** | Bekhruz | Пишет спецификации, ставит приоритеты, ревьюит PR. Единственный источник истины по направлению. |
+| **Middle Developer** | Alex | Реализует функции. Читает спецификации, открывает PR, владеет архитектурными решениями внутри спецификации. |
+| **Intern Developer** | Timur | Реализует функции под руководством. Тот же workflow что Alex (PR-per-task) — более ответственный из двух. |
 
-Bekhruz does not track Linear. Linear is the team's personal scratchpad if they want one.
-**Truth lives in this folder.** Truth = the markdown files + the git history.
+Bekhruz не отслеживает Linear. Linear — личный блокнот команды, если хотят им пользоваться.
+**Истина живёт в этой папке.** Истина = markdown-файлы + git-история.
 
 ---
 
-## The Funnel framing
+## Рамка «Воронка»
 
-"Funnel" in this folder means the **marketing funnel** — how a person becomes and stays a customer of Oxbridge International School. It is the umbrella that organizes everything we build:
+«Воронка» в этой папке означает **маркетинговую воронку** — как человек становится и остаётся клиентом Оксбриджа. Это зонтик, который организует всё, что мы строим:
 
-| Stage | Folder | What it does | Stakeholder |
+| Стадия | Папка | Что делает | Стейкхолдер |
 |---|---|---|---|
-| **Top of funnel** | `Funnel/1-School-site/` | Awareness, SEO, lead capture, marketing site | Prospective parents |
-| **Middle of funnel** | `Funnel/2-CRM/` | Lead capture and conversion — IP telephony (UCM6304), amoCRM, call routing, lead nurturing | Admissions team |
-| **Bottom of funnel** | `Funnel/3-Parent-App/` | Value delivery to current customers — payments, attendance, meals, passes, etc. | Current parents (and eventually teachers, admins) |
+| **Верх воронки** | `Funnel/1-School-site/` | Узнаваемость, SEO, захват лидов, маркетинговый сайт | Потенциальные родители |
+| **Середина воронки** | `Funnel/2-CRM/` | Захват лидов и конверсия — IP-телефония (UCM6304), amoCRM, маршрутизация звонков, nurture-кампании | Команда приёма |
+| **Низ воронки** | `Funnel/3-Parent-App/` | Доставка ценности текущим клиентам — оплата, посещаемость, питание, проходные и т.д. | Текущие родители |
 
-Every product, decision, and ticket lives under one of these stages. If something doesn't fit, we have a scope problem and need to talk before building.
+Каждый продукт, решение и тикет живёт под одной из этих стадий. Если что-то не подходит — у нас scope-проблема, и нужно обсудить до начала разработки.
 
 ---
 
-## Active products
+## Активные продукты
 
-### Funnel/3-Parent-App — HARD DEADLINE: 15 August 2026
-The bottom-of-funnel product. A web/mobile app for current parents.
+### Funnel/3-Parent-App — ЖЁСТКИЙ ДЕДЛАЙН: 15 августа 2026
+Bottom-of-funnel продукт. Web/mobile приложение для текущих родителей.
 
-**Initial surfaces (Aug 15 deliverable):**
-- Payments (balance, Click/PayMe, webhooks)
-- Attendance visibility
-- Meals schedule
-- Passes (Hikvision integration — entry/exit, push notifications)
-- Uniform orders (inventory, payment, pickup)
-- Bus tracking (routes, boarding/dropoff, notifications)
-- Messaging (parent ↔ school)
+**Архитектурный принцип:** Parent App — это **клиент**, а не система-источник истины. Он не владеет данными студентов, оценок, посещаемости или финансами. Эти данные живут в системах-источниках (1C для финансов сегодня, Toddle для студентов сегодня, наша будущая LMS для студентов завтра). Parent App читает оттуда и предоставляет цельный родительский UX. См. [[Funnel/3-Parent-App/_Hub]] для деталей.
 
-**Why these:** these are the early "quick wins" that prove value to parents and drive download/engagement. Without them, parents don't open the app, and the rest of the platform fails to land.
+**Поверхности v1 (что в scope к 15 августа):**
+- **Auth** — Phone OTP + биометрия (D-004)
+- **Оплата** — Standard Plus scope, источник=1C (D-001 Variant C: custom backend как кеш + 1C как истина)
+- **Посещаемость** — read-only из Toddle
+- **Проходные / Hikvision** — entry/exit события, push (НЕ auto-lock, по D-010)
+- **Сообщения** — родитель ↔ школа, schema с seeds для multi-role (D-004)
+- **Расписание питания** — ресепшен загружает фото через Telegram-бот, Parent App читает
 
-**Long-shadow vision (2027–28 academic year):**
-The Parent App is the **seed of our SIS** (Student Information System). In academic year 2027–28 we plan to fully replace Toddle with our own system, layered on top of Google fundamentals. Architecture decisions made for the Aug 15 deliverable must not paint us into a corner — auth must accommodate teachers and admins, the data model must be extensible to grades/attendance/scheduling at the SIS level, APIs must be first-class so other surfaces can build on them.
+**Отклонено / отложено:**
+- ❌ Bus tracking — убрано из scope
+- ❌ Международные карты — отклонено (D-003)
+- ⏸ Заказ формы — отложено в v1.1
+- ⏸ Частичные платежи + early-payment benefit + auto-lock доступа — отложено/отклонено
 
-**How to encode this in handoff docs:** the `_Hub.md` for Parent App carries the 2027–28 vision so context exists. Individual PRDs and Specs focus on the Aug 15 deliverable but flag SIS-impacting decisions explicitly in a `Future-state considerations` section.
+**Длинная тень (2027–28 учебный год):**
+Запланирована полная замена Toddle нашей собственной LMS/SIS. Parent App **не пытается стать SIS** — это отдельный будущий проект со своей папкой когда стартует. Parent App просто будет читать из новой LMS вместо Toddle.
 
 ### Funnel/2-CRM
-Sales/CRM stack. UCM6304 IP telephony + amoCRM. Lead routing by campus (MU, YA), call recordings, early-stage qualification, pipeline. See `Funnel/2-CRM/_Hub.md`.
+Стек продаж и CRM. UCM6304 IP-телефония + amoCRM. Маршрутизация лидов по кампусу (MU, YA), записи звонков, ранняя квалификация, pipeline. См. `Funnel/2-CRM/_Hub.md`.
 
 ### Funnel/1-School-site
-Marketing site. CWV/SEO work in progress. Existing project — most tickets carry over from Linear.
+Маркетинговый сайт (репозиторий `remix-of-oxbridge`). Vite + React + TypeScript + Vercel. Текущая работа: CWV/SEO, dead-click аудит, UTM-теги. См. `Funnel/1-School-site/_Hub.md`.
 
 ---
 
-## Org context Alex and Timur need to know
+## Что нужно знать Алексу и Тимуру про организацию
 
-- **Oxbridge International School** — private international school in Tashkent, Uzbekistan. Ages 2–18.
-- **Two campuses:**
-  - **MU (Mirzo-Ulugbek)** — original, ~800 students, senior campus.
-  - **YA (Yashnobod)** — purpose-built 2025, new campus, fewer students, more capacity.
-- **Three programs the app must understand:**
-  - *Futurum* — full IB curriculum (PYP → MYP → DP). English-only.
-  - *Hereditum* — enhanced Uzbek state curriculum. Russian + Uzbek + English.
-  - *Initium* — kindergarten (ages 2–7). Feeds both Futurum and Hereditum.
-- **Total enrollment (April 2026):** ~1,170 students across both campuses. 793 at MU, 377 at YA.
-- **Billing model:** monthly tuition, 10-month academic year. First payments due September 2026 — this is the real reason the Parent App must ship by Aug 15.
-- **Family relationships:** one parent often has multiple children across grades and campuses. Multi-child households are common. The app must model this from day one.
+- **Oxbridge International School** — частная международная школа в Ташкенте. Возраст 2–18.
+- **Два кампуса:**
+  - **MU (Mirzo-Ulugbek)** — оригинальный, ~800 учеников, senior-кампус
+  - **YA (Yashnobod)** — построен в 2025, новый кампус, меньше учеников, больше capacity
+- **Три программы, которые приложение должно понимать:**
+  - *Futurum* — полный IB (PYP → MYP → DP). Только английский.
+  - *Hereditum* — углублённая узбекская гос-программа. Русский + узбекский + английский.
+  - *Initium* — детский сад (2–7 лет). Питает и Futurum, и Hereditum.
+- **Зачисление (апрель 2026):** ~1170 учеников на обоих кампусах. 793 на MU, 377 на YA.
+- **Биллинг:** ежемесячная оплата, 10-месячный учебный год. Первые платежи — сентябрь 2026. Это настоящая причина дедлайна 15 августа для Parent App.
+- **Семейные отношения:** один родитель часто имеет несколько детей в разных классах и кампусах. Семьи с несколькими детьми — норма. Приложение должно моделировать это с первого дня.
 
-What devs do NOT need from CLAUDE.md: tuition amounts, pricing strategy, brand voice rules, marketing positioning, parent personas. That stays in Career-Vault.
-
----
-
-## How work flows here
-
-### For Bekhruz (PM)
-1. New product idea or feature → write spec using `_Templates/Spec.md`.
-2. Spec lives in the right `Funnel/X/Specs/` folder.
-3. Break spec into tasks using `_Templates/Task.md`. Tasks go in `Funnel/X/Tasks/`.
-4. Assign tasks by setting the `assignee` field in the task file frontmatter.
-5. Review PRs as they come in.
-
-### For Alex and Timur (devs)
-1. Pull the PM repo. Read the task file you're assigned.
-2. Branch: `task/<task-id>-short-description`.
-3. Build in your code repo. PR-per-task in the **code** repo, with `Closes: PM/Funnel/.../Tasks/<task-id>.md` in the description.
-4. When done: open a PR against the PM folder that flips the task file frontmatter `status: in_progress` → `status: done` and adds a `## Completion note` section with what shipped.
-5. Bekhruz reviews PM PR + code PR, merges.
-
-### For everyone (weekly)
-- Friday EOD: team writes `Status/YYYY-WW-{name}.md` from the `_Templates/Status.md` template. 5 minutes, not a chore.
+Что разработчикам НЕ нужно из CLAUDE.md: суммы платы за обучение, ценовая стратегия, правила бренд-войса, маркетинговое позиционирование, persona родителей. Это в Career-Vault.
 
 ---
 
-## Naming conventions
-- Folders: `PascalCase` for top-level (`Funnel/`, `Sprints/`, `Status/`), numbered + kebab for stages (`1-School-site/`).
-- Files: `kebab-case.md` for content, `_Hub.md` for index files, `_Templates/` and `_Skills/` prefixed with `_`.
-- Tasks: `T-{NNN}-short-slug.md` (e.g. `T-001-payments-click-webhook.md`).
-- Specs: `kebab-case.md` named by feature surface.
-- Decisions: `D-{NNN}-short-slug.md` (e.g. `D-001-auth-stack-choice.md`).
+## Как течёт работа
+
+### Для Bekhruz (PM)
+1. Новая идея продукта/фичи → пиши спецификацию по `_Templates/Spec.md`
+2. Спецификация живёт в правильной папке `Funnel/X/Specs/`
+3. Разбей спецификацию на задачи по `_Templates/Task.md`. Задачи в `Funnel/X/Tasks/`
+4. Назначай задачи через поле `assignee` в frontmatter
+5. Ревьюй PR по мере поступления
+
+### Для Alex и Timur (разработчики)
+1. Pull PM-репозиторий. Прочитай назначенный файл задачи.
+2. Бранч: `task/T-NNN-короткое-описание`
+3. Каждый коммит префиксован `T-NNN:` (обязательно)
+4. PR в код-репозиторий с `Closes: PM/Funnel/.../T-NNN-*.md`
+5. Когда готово — открой PR против PM-папки: flip `status: in_progress` → `done`, заполни `commit_final`, вставь раздел «Завершение» (сгенерированный через `_Skills/complete-task.md`)
+6. Bekhruz ревьюит оба PR и мержит
+
+Полный workflow и конвенции — в `_Skills/task-workflow.md`.
+
+### Для всех (еженедельно)
+- Пятница к концу дня: команда пишет `Status/YYYY-WW-{имя}.md` по `_Templates/Status.md`. 5 минут, не рутина.
 
 ---
 
-## Frontmatter types
+## Конвенции именования
+- Папки: `PascalCase` для top-level (`Funnel/`, `Sprints/`, `Status/`), нумерованные + kebab для стадий (`1-School-site/`)
+- Файлы: `kebab-case.md` для контента, `_Hub.md` для index-файлов, `_Templates/` и `_Skills/` с префиксом `_`
+- Задачи: `T-NNN-short-slug.md` (например, `T-001-flutter-scaffolding-auth.md`)
+- Спецификации: `kebab-case.md` по имени feature-surface
+- Решения: `D-NNN-short-slug.md` (например, `D-001-balance-source.md`)
 
-Only these. Nothing else.
+---
 
-| Type | Used for |
+## Типы frontmatter
+
+Только эти. Ничего больше.
+
+| Тип | Используется для |
 |---|---|
-| `spec` | Feature/product specification |
-| `task` | Single buildable work unit |
-| `decision` | Architectural or scope decision (ADR-style) |
-| `status` | Weekly status from team or PM |
-| `sprint` | 2-week plan |
-| `hub` | Index file for a folder |
+| `spec` | Спецификация функции/продукта |
+| `task` | Одна единица работы, готовая к билду |
+| `decision` | Архитектурное или scope-решение (ADR-style) |
+| `status` | Еженедельный статус от команды или PM |
+| `sprint` | 2-недельный план |
+| `hub` | Index-файл для папки |
+| `note` | Свободная заметка (например, `end-state-v1.md`, `code-repos.md`) |
 
-All files should carry frontmatter — see `_Templates/` for the exact shape.
+Все файлы должны нести frontmatter — см. `_Templates/` для точной формы.
 
 ---
 
-## PM skills available
+## Доступные PM-навыки (skills)
 
-| Skill | Purpose |
+| Skill | Назначение |
 |---|---|
-| `/pm-status` | Read git history + open tasks + last status logs → produce health snapshot per product |
-| `/spec` | Interactive: turn a feature idea into a full spec using the template |
-| `/handoff` | Turn a spec into a discrete, assignable task for Alex or Timur |
-| `/standup` | Generate a standup summary from recent git activity in the PM folder |
-| `/sprint` | Plan the next 2 weeks of work |
+| `/pm-status` | Прочитать git-историю + открытые задачи + последние статусы → выдать health-snapshot по продукту |
+| `/spec` | Интерактивно: превратить идею фичи в полную спецификацию по шаблону |
+| `/handoff` | Превратить спецификацию в дискретные, назначаемые задачи для Alex или Timur |
+| `/standup` | Сгенерировать standup-сводку из недавней git-активности в PM |
+| `/sprint` | Спланировать следующие 2 недели работы |
+| `/complete-task` | Сгенерировать раздел «Завершение» в файле задачи из git-истории |
+| `/task-workflow` | Полный жизненный цикл задачи: создание бранча, конвенции коммитов, открытие PR, закрытие |
 
-Skills live in `_Skills/` and are invoked from anywhere inside this folder.
-
----
-
-## What Claude should NEVER do in this folder
-- Never copy pricing, brand voice, marketing strategy, parent personas, or admissions tactics from Career-Vault into PM files. PM is dev-facing.
-- Never write to Career-Vault from a PM session. Cross-folder writes go the other way only (Career-Vault → PM, via copying *relevant* project facts).
-- Never edit Linear or assume Linear is the source of truth. PM markdown is.
-- Never create files outside the folder structure defined here. If a new shape is needed, propose it to Bekhruz first.
-- Never assign work to someone in a task file without Bekhruz explicitly saying so.
-- Never delete or modify the `.git/` directory or `.gitignore`.
+Навыки живут в `_Skills/` и вызываются из любого места внутри этой папки.
 
 ---
 
-## Key paths
-| What | Path |
+## Правила границы — направление потока данных важно
+
+PM живёт внутри `Oxbridge/` для концептуальной организации, но **граница потока данных асимметрична**:
+
+- **Личный/стратегический контент → PM:** ❌ **НИКОГДА**. Таблицы цен, правила бренда, admissions-стратегия, persona родителей, маркетинговое позиционирование — всё это остаётся в личных подпапках Oxbridge, никогда не попадает в PM.
+- **PM → личный контекст (например, при работе скилла `/oxbridge`):** ✅ **OK и ожидаемо.** Сканирование PM для состояния проекта, дедлайнов, решений полезно когда Bekhruz думает стратегически. PM read-friendly для upstream-навыков.
+
+## Что Claude НИКОГДА не должен делать в этой папке
+- Никогда не копируй цены, бренд-войс, маркетинговую стратегию, persona родителей, или admissions-тактики из личных Oxbridge-файлов в PM. PM — dev-facing.
+- Никогда не пиши в личные Oxbridge-папки (`Oxbridge/Marketing/`, `Oxbridge/Strategy/`, и т.д.) из PM-сессии. PM session writes остаются в PM.
+- Никогда не редактируй Linear и не предполагай, что Linear — источник истины. PM markdown — да.
+- Никогда не создавай файлы вне структуры папок, определённой здесь. Если нужна новая форма — предложи Bekhruz сначала.
+- Никогда не назначай работу в файле задачи без явного слова Bekhruz.
+- Никогда не удаляй и не модифицируй `.git/` или `.gitignore`.
+
+---
+
+## Ключевые пути
+| Что | Путь |
 |---|---|
-| PM root | `/Users/thebekhruz/Desktop/Career-Vault/PM` |
-| Templates | `/Users/thebekhruz/Desktop/Career-Vault/PM/_Templates/` |
-| Skills | `/Users/thebekhruz/Desktop/Career-Vault/PM/_Skills/` |
-| Funnel | `/Users/thebekhruz/Desktop/Career-Vault/PM/Funnel/` |
-| Sprints | `/Users/thebekhruz/Desktop/Career-Vault/PM/Sprints/` |
-| Status logs | `/Users/thebekhruz/Desktop/Career-Vault/PM/Status/` |
+| PM root | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM` |
+| Templates | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM/_Templates/` |
+| Skills | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM/_Skills/` |
+| Funnel | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM/Funnel/` |
+| Sprints | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM/Sprints/` |
+| Status logs | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/PM/Status/` |
+| Code repos local | `/Users/thebekhruz/Desktop/Career-Vault/Oxbridge/code/` |
 
 ---
-*This file is the contract. If something in PM contradicts CLAUDE.md, CLAUDE.md wins until updated.*
+*Этот файл — контракт. Если что-то в PM противоречит CLAUDE.md, CLAUDE.md побеждает до обновления.*
