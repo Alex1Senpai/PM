@@ -29,30 +29,38 @@ commit_final: ""
 ### Страница 1 — Главная (`/`)
 
 1. Добавить JSON-LD блок `EducationalOrganization` — название, адреса обоих кампусов, телефон, email, URL, координаты, соцсети, возраст учеников.
-2. Добавить JSON-LD блок `FAQPage` — взять 4 существующих вопроса из секции "Вопросы, которые не дают спать по ночам". Ответы — полные, не обрезанные.
-3. Разместить оба блока в `<head>` или непосредственно перед `</body>` — не в теле контента.
+2. В блок `EducationalOrganization` добавить брендинг-поля:
+   - `description`: развёрнутое описание с брендовыми proof points — **точный текст в эталонном JSON** (`schema-org-example.json`). Не писать своими словами, не сокращать. Там: 98% поступления, 82% топ-300, 19% выше IB average, 90% без репетиторов, макс 24 ученика, 25 стран, философия школы.
+   - `slogan`: "Воспитание целостной личности: от любознательности к уверенности"
+   - `foundingDate`: "2018"
+   - `foundingLocation`: Tashkent, Uzbekistan
+   - `additionalProperty` с `schoolMotto`: "Scientia · Futurum · Hereditatem"
+   - `knowsAbout`: ["International Baccalaureate", "IB Diploma Programme", "bilingual education", "private school Tashkent", "Russian language curriculum Uzbekistan"]
+   - `keywords`: "IB школа Ташкент, частная школа Ташкент, международная школа Узбекистан, IB Diploma Ташкент, русская школа Ташкент"
+3. Добавить JSON-LD блок `FAQPage` — взять 4 существующих вопроса из секции "Вопросы, которые не дают спать по ночам". Ответы — полные, не обрезанные.
+4. Разместить все блоки в `<head>` или непосредственно перед `</body>` — не в теле контента.
 
 ### Страница 2 — Как поступить (`/how-to-apply`)
 
-4. Добавить JSON-LD блок `FAQPage` — взять вопросы из существующего FAQ-аккордеона на странице (все раскрытые вопросы). Ответы должны быть полными, даже если в UI они скрыты за аккордеоном.
+5. Добавить JSON-LD блок `FAQPage` — взять вопросы из существующего FAQ-аккордеона на странице (все раскрытые вопросы). Ответы должны быть полными, даже если в UI они скрыты за аккордеоном.
 
 ### Страница 3 — Стоимость обучения (`/tuition-fees`)
 
-5. Добавить JSON-LD блок `FAQPage` с вопросами про оплату, если они есть на странице.
-6. Добавить JSON-LD блок `OfferCatalog` — две программы (Futurum IB и Hereditum) с ценовыми диапазонами по кампусам.
+6. Добавить JSON-LD блок `FAQPage` с вопросами про оплату, если они есть на странице.
+7. Добавить JSON-LD блок `OfferCatalog` — две программы (Futurum IB и Hereditum) с ценовыми диапазонами по кампусам.
 
 ### Страница 4 — Программные страницы (`/primary`, `/secondary-school`, `/high-school`, `/early-years`)
 
-7. На каждой странице добавить `EducationalOccupationalProgram` — название программы, язык обучения, возрастной диапазон, аккредитация (IB World School где применимо).
+8. На каждой странице добавить `EducationalOccupationalProgram` — название программы, язык обучения, возрастной диапазон, аккредитация (IB World School где применимо).
 
 ### Финальная проверка
 
-8. Проверить каждую страницу через [Google Rich Results Test](https://search.google.com/test/rich-results) — все блоки должны проходить без ошибок.
-9. Проверить через [Schema.org Validator](https://validator.schema.org/) — без критических предупреждений.
+9. Проверить каждую страницу через [Google Rich Results Test](https://search.google.com/test/rich-results) — все блоки должны проходить без ошибок.
+10. Проверить через [Schema.org Validator](https://validator.schema.org/) — без критических предупреждений.
 
 ## Определение готовности (Definition of Done)
 
-- [ ] Главная: `EducationalOrganization` + `FAQPage` добавлены, Rich Results Test — зелёный
+- [ ] Главная: `EducationalOrganization` (включая брендинг-поля: slogan, foundingDate, schoolMotto, knowsAbout) + `FAQPage` добавлены, Rich Results Test — зелёный
 - [ ] `/how-to-apply`: `FAQPage` добавлен, Rich Results Test — зелёный
 - [ ] `/tuition-fees`: `FAQPage` + `OfferCatalog` добавлены, Rich Results Test — зелёный
 - [ ] `/primary`, `/secondary-school`, `/high-school`, `/early-years`: `EducationalOccupationalProgram` добавлены
