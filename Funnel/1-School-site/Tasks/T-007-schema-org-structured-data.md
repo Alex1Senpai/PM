@@ -82,9 +82,46 @@ commit_final: ""
 - **Ручные проверки:** после деплоя каждую страницу прогнать через Rich Results Test и Schema Validator
 - **Граничные случаи:** убедиться что JSON-LD не ломает CSP заголовки; убедиться что аккордеон-ответы на FAQ попали в schema полностью, а не как пустые строки
 
+## Telegram InstantView — шаблон для блога
+
+Параллельно с schema.org Timur создаёт IV-шаблон для блога. Выполняется одновременно с задачами Alex (T-008).
+
+9. Зарегистрировать сайт в [Telegram InstantView Editor](https://instantview.telegram.org/).
+10. Создать IV-шаблон для URL-паттерна `oxbridgeschool.uz/blog/*` (и `/uz/blog/*`, `/en/blog/*`).
+11. Шаблон должен корректно извлекать: заголовок (`~title`), тело статьи (`~body`), дату (`~published_date`), автора (`~author`) и изображение (`~cover`).
+12. Проверить рендеринг на 2–3 тестовых постах (дождаться деплоя от Alex).
+13. Убедиться, что все языковые версии (`/`, `/uz/`, `/en/`) рендерятся корректно — одним шаблоном.
+
+## 301-редиректы для мёртвых страниц
+
+14. Реализовать 301-редиректы для следующих мёртвых URL (подтверждены через Clarity, 2026-06-04):
+
+| Старый URL | Новый URL |
+|---|---|
+| `/en/interval-repetition-method` | `/en/blog/interval-repetition-method` |
+| `/en/mnemonics-for-memory-development` | `/en/blog/mnemonics-for-memory-development` |
+| `/uz/zamonaviy-pedagogik-usullar` | `/uz/blog/zamonaviy-pedagogik-usullar` |
+| `/uz/potentsialni-ochish` | `/uz/blog/potentsialni-ochish` |
+| `/uz/xotirasini-yaxshilash-uchun-oyinlar` | `/uz/blog/xotirasini-yaxshilash-uchun-oyinlar` |
+| `www.oxbridgeschool.uz/*` | `oxbridgeschool.uz/*` (www → non-www, все страницы) |
+
+15. Проверить каждый редирект через браузер и убедиться, что возвращается 301 (не 302).
+
+## Schema.org для блога
+
+16. После деплоя блога (Alex, T-008) добавить на каждый пост JSON-LD блок `Article`:
+    - `@type`: Article
+    - `headline`: заголовок поста
+    - `datePublished` + `dateModified`
+    - `author`: EducationalOrganization (Oxbridge)
+    - `publisher`: EducationalOrganization с логотипом
+17. На посты в формате Q&A добавить дополнительный блок `FAQPage` (координировать с Alex — он помечает такие посты в шаблоне).
+
 ## Зависимости / блокируется
 
-- Нет. Задача независима — только правки в `<head>` / перед `</body>`.
+- Шаги 9–13 (InstantView): зависят от T-008 — дождаться деплоя хотя бы первых 5 постов.
+- Шаги 16–17 (blog schema): зависят от T-008 — нужна финальная URL-структура блога.
+- Шаги 14–15 (редиректы): независимы, можно делать сразу.
 
 ## Вне scope
 
