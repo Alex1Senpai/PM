@@ -12,7 +12,7 @@ created: 2026-06-11
 target-done: 2026-06-20
 code_repo: "remix-of-oxbridge + amocrm-widget"
 commit_initial: "ff5b52f"
-commit_final: "a5718e6 (remix-of-oxbridge), b7dcc84 (amocrm-widget)"
+commit_final: "b2fc721 (remix-of-oxbridge), b7dcc84 (amocrm-widget)"
 ---
 
 # T-012 — Реализовать пятничный дашборд статистики
